@@ -1,0 +1,19 @@
+import lief
+
+# 1. Load your binary
+# Use lief.MachO.parse for Mac binaries to handle FAT/Universal formats
+binaries = lief.MachO.parse("./out_files/hello_world.out")
+target = binaries[0] # Select the first architecture (usually arm64 on M4)
+
+# 2. Create a new section
+# We'll name it __fcc (Function Code Cave)
+new_section = lief.MachO.Section("__fcc", [0] * 1024)
+new_section.segment_name = "__TEXT"
+
+# 3. Add the section to the __TEXT segment
+# This automatically handles shifting other sections to make room
+target.add_section(new_section)
+
+# 4. Save the modified binary
+target.write("./expanded/hello_expanded.out")
+print("New binary created: hello_expanded.out")
