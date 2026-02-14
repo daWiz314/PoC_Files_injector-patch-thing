@@ -17,6 +17,8 @@ struct file_headers {
     uint64_t *other_offsets; // Pointer to dynamically allocated array
 };
 
+// Need to refactor the struct, and remove the other_offsets, and just have an array of segments, and then we can print them all out in the main function. This is just a POC, so I want to see everything, but I want to refactor it in a way that makes more sense for the future.
+
 void file_headers_init(struct file_headers *headers) {
     headers->text_offset = 0;
     headers->text_size = 0;
