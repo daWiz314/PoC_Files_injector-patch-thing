@@ -2,7 +2,7 @@
 (Still working on the name)<br>
 This will inject/patch .c code and compiling into a binary.
 
-The idea of this is to allow a user to give it a .c file, it will compile it (target arch in dev, right now its default to the running CPU), strip the binarys (.text section specifically), and shove them where ever the user wants.
+The idea of this is to allow a user to give it a .c file, it will compile it (target architecture is in development for future use, right now the target architecture default to the running CPU), strip the binarys (.text section specifically), and shove them where ever the user wants.
 
 # THE POC FILES ONLY WORK ON MACOS M SERIES RIGHT NOW
 Right now the PoC files need [Radare 2](https://github.com/radareorg/radare2) installed on a system, and Python needs r2pipe and lief.
